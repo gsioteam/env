@@ -1,4 +1,4 @@
-
+console.log("test");
 function calculatePath(base_path, path) {
     let base_arr = base_path.split('/');
     base_arr.pop();
