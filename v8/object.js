@@ -1,7 +1,6 @@
 let cache = [];
 
 class Object {
-    static class_name = 'gc::Object';
 
     static reg() {
         _registerClass(this, this.class_name);   
@@ -15,6 +14,7 @@ class Object {
         }
         let obj = new (Function.prototype.bind.apply(this, [null].concat(argv)));
         _newObject(obj, this.class_name, argv);
+        obj.initialize.apply(obj, argv);
 
         return obj;
     }
@@ -52,8 +52,11 @@ class Object {
             cache.splice(idx, 1);
         }
     }
+
+    initialize() {}
 }
 
+Object.class_name = 'gc::Object';
 Object.reg();
 
 module.exports = Object;
