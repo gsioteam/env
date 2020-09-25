@@ -204,6 +204,16 @@ class ScriptContext extends Object {
 ScriptContext.class_name = 'gs::ScriptContext';
 ScriptContext.reg();
 
+class SettingItem extends Object {}
+SettingItem.class_name = 'gs::SettingItem';
+SettingItem.reg();
+SettingItem.Type = {
+    Header: 0,
+    Switch: 1,
+    Input: 2,
+    Options: 3
+};
+
 module.exports = {
     Object,
     Callback,
@@ -218,4 +228,5 @@ module.exports = {
     Error,
     ScriptContext,
     Encoder,
+    SettingItem
 };
